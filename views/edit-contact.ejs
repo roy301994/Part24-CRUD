@@ -31,7 +31,8 @@
 
  <!--! Perubahan 1-->
 
-          <form method="post" action="/contact/update"><!-- edit route untuk nampilin formnya sedangkan update route untuk perubahan datanya-->
+          <form method="post" action="/contact?_method=PUT"><!-- edit route untuk nampilin formnya sedangkan update route untuk perubahan datanya-->
+            <input type="hidden" name="_id" value ="<%= contactD._id%>"/><!--mengubah data berdasarkan id,id nya dari id mongodb-->
             <input type="hidden" name="oldNama" value=<%= (contactD.oldNama)? contactD.oldNama:contactD.nama%>> <!--! Perubahan 4-->
             <div class="mt-4"><!--*kalau old nama tidak ada maka yg jadi value adalah contactD.nama-->
               <label for="nama" class="form-label">Nama</label>
@@ -45,7 +46,7 @@
             
               <div class="mb-3">
                 <label for="noHP" class="form-label">Nomor</label>HP</label>
-                <input type="text" class="form-control" id="noHP" name="noHP" required value=<%= contactD.noHP%> >
+                <input type="text" class="form-control" id="noHP" name="noHP" required value=<%= contactD.nohp%> >
               </div>
 
             <button type="submit" class="btn btn-primary">Update Data Contact</button> <!--! Perubahan 3-->
